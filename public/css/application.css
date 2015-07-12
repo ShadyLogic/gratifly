@@ -15,6 +15,6 @@ div .panel {
 div .alert {
   overflow: visible;
   text-align: center;
-  margin: 0px auto 10px;
+  margin: auto;
   width: 200px;
 }

@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+div .panel {
+  margin: auto;
+  text-align: center;
+  width: 200px;
+}

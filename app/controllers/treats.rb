@@ -2,14 +2,14 @@ get '/treats' do
   erb :"/treats/show"
 end
 
-post '/treats/add' do
-
+post '/treats' do
+  redirect "/"
 end
 
-get '/treats/edit' do
-  erb :"/treats/edit"
+patch '/treats' do
+  redirect "/"
 end
 
-put '/treats/edit' do
-
+delete '/treats/delete' do
+  redirect "/"
 end

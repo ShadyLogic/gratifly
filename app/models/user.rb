@@ -2,15 +2,16 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
-  has_many :treats
 
   def password
-     @password ||= Password.new(password_hash)
-   end
+    @password ||= Password.new(password_hash)
+  end
 
-   def password=(new_password)
-     @password = Password.create(new_password)
-     self.password_hash = @password
-   end
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
+  has_many :treats
 end
 

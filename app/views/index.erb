@@ -1,37 +1,20 @@
+<link href='http://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
 <div class="container">
-  <h1>Welcome to GratiFLY!</h1>
+  <h1 class="title">Welcome to GratiFLY!</h1>
   <h3>Your external source of self control</h3>
   </br>
 
+  <% if params[:error] %>
+    <div class="alert alert-danger" role="alert"><%= params[:error] %></div>
+  <% end %>
+
+  <% if logged_in? %>
+
+  <% else %>
+    <%= erb :"partials/_login_signup", layout: false %>
+  <% end %>
 
 
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">Create New Account</h3>
-    </div>
-    <form action="/users" method="POST">
-      <table class="table">
-        <tr><td><input type="text"     name="username" placeholder="Username"></td></tr>
-        <tr><td><input type="password" name="password" placeholder="Password"></td></tr>
-        <tr><td><input type="text"     name="email"    placeholder="email@example.org"></td></tr>
-        <tr><td><input type="submit"   value="Submit"></td></tr>
-      </table>
-    </form>
-  </div>
-
-  </br>
-
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h3 class="panel-title">Log In</h3>
-    </div>
-    <form action="/users/login" method="POST">
-      <table class="table">
-        <tr><td><input type="text"     name="username" placeholder="Username"></td></tr>
-        <tr><td><input type="password" name="password" placeholder="Password"></td></tr>
-        <tr><td><input type="submit"   value="Submit"></td></tr>
-      </table>
-    </form>
-  </div>
 
 </div>

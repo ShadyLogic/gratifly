@@ -11,3 +11,9 @@ div .panel {
   text-align: center;
   width: 200px;
 }
+
+div .alert {
+  text-align: center;
+  margin: 0px auto 10px;
+  width: 400px;
+}

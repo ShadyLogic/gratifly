@@ -13,7 +13,8 @@ div .panel {
 }
 
 div .alert {
+  overflow: visible;
   text-align: center;
   margin: 0px auto 10px;
-  width: 305px;
+  width: 200px;
 }

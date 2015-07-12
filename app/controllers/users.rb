@@ -17,7 +17,7 @@ end
 
 post '/users/login' do
   unless user = User.find_by(username: params[:username])
-    redirect "/?error=UNABLE+TO+FIND+A+USER+BY+THAT+NAME"
+    redirect "/?error=NO+USER+BY+THAT+NAME"
   end
   if user.password == params[:password]
     login(user.username)

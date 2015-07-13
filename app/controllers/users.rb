@@ -3,8 +3,12 @@ get '/users' do
 end
 
 post '/users' do
-  signup(params[:username], params[:password], params[:email])
-  redirect "/"
+  unless User.find_by(username: params[:username]) || User.find_by(email: params[:email])
+    signup(params[:username], params[:password], params[:email])
+    redirect "/"
+  else
+    return "THERE IS ALREADY A USER WITH THAT INFORMATION"
+  end
 end
 
 patch '/users' do

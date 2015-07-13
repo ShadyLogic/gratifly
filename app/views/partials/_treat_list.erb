@@ -1,4 +1,6 @@
 <% treats = current_user.treats %>
+<% treats.each { |treat| treat.ready? } %>
+<% treats = treats.order(ready: :desc) %>
 
 <div class="container treat-wrapper">
 	<% treats.each do |treat| %>

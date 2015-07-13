@@ -1,0 +1,23 @@
+<% treats = current_user.treats %>
+
+<div class="container treat-wrapper">
+	<% treats.each do |treat| %>
+		<div class="btn-group">
+			<% if treat.ready? %>
+				<form action="/treats/complete" method="POST">
+					<input type="hidden" name="treat_id" value="<%= treat.id %>">
+					<button type="button submit" class="btn btn-success"><%= treat.title %></button>
+				</form>
+			<% else %>
+				<button type="button" class="btn btn-danger"><%= treat.title %></button>
+			<% end %>
+		</div>
+		</br>
+		<% unless treat.ready? %>
+			<p>Time Left: <%= Time.at(treat.time_left).utc.strftime("%H:%M:%S") %></p>
+		<% else %>
+			<p>Ready!</p>
+		<% end %>
+		</br>
+	<% end %>
+</div>

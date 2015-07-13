@@ -1,9 +1,10 @@
 <div class="container">
-	<div class="panel panel-warning">
-		<div class="panel-heading">
-			<h3 class="panel-title">New Treat</h3>
-		</div>
-		<form action="/treats" method="POST">
+	<form action="/treats" method="POST">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">New Treat</h3>
+			</div>
+			
 			<table class="table">
 				<tr><td>
 					<div class="input-group">
@@ -11,6 +12,13 @@
 						<span class="input-group-addon" id="basic-addon1">Title</span>
 					</div>
 				</td></tr>
+			</table>
+		</div>
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">Interval Between Treats</h3>
+			</div>
+			<table>
 				<tr><td>
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Days" aria-describedby="basic-addon1" name="days">
@@ -37,6 +45,7 @@
 				</td></tr>
 				<tr><td><input type="submit"   value="Submit"></td></tr>
 			</table>
-		</form>
-	</div>
+			
+		</div>
+	</form>
 </div>

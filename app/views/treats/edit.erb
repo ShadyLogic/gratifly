@@ -1,0 +1,15 @@
+<div class="container">
+	<h3>Choose a Treat to Edit</h3>
+
+	<div class="container treat-wrapper">
+		<% @treats.each do |treat| %>
+		<div class="btn-group">
+			<form action="/treats/edit/<%= treat.id %>" method="GET">
+				<button type="button submit" class="btn btn-warning"><%= treat.title %></button>
+			</form>
+		</div>
+		</br>
+		</br>
+		<% end %>
+	</div>
+</div>

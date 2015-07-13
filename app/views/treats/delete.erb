@@ -1,0 +1,17 @@
+<div class="container">
+	<h3>Choose a Treat to Delete</h3>
+
+	<div class="container treat-wrapper">
+		<% @treats.each do |treat| %>
+		<div class="btn-group">
+			<form action="/treats" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="id" value="<%= treat.id %>">
+				<button type="button submit" class="btn btn-danger"><%= treat.title %></button>
+			</form>
+		</div>
+		</br>
+		</br>
+		<% end %>
+	</div>
+</div>

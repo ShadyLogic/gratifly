@@ -1,0 +1,49 @@
+<% time = @treat.interval_in_seconds %>
+
+<div class="container">
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h3 class="panel-title">Edit Treat</h3>
+		</div>
+		<form action="/treats" method="POST">
+			<input type="hidden" name="_method" value="PUT">
+			<input type="hidden" name="id" value="<%= @treat.id %>">
+			<table class="table">
+				<tr><td>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon1" name="title" value="<%= @treat.title %>">
+						<span class="input-group-addon" id="basic-addon1">Title</span>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon1" name="days" value="<%= time / 86400 %>">
+						<span class="input-group-addon" id="basic-addon1">Days</span>
+					</div>
+				</td></tr>
+				<% time = time % 86400 %>
+				<tr><td>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon1" name="hours" value="<%= time / 3600 %>">
+						<span class="input-group-addon" id="basic-addon1">Hours</span>
+					</div>
+				</td></tr>
+				<% time = time % 3600 %>
+				<tr><td>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon1" name="minutes" value="<%= time / 60 %>">
+						<span class="input-group-addon" id="basic-addon1">Minutes</span>
+					</div>
+				</td></tr>
+				<% time = time % 60 %>
+				<tr><td>
+					<div class="input-group">
+						<input type="text" class="form-control" aria-describedby="basic-addon1" name="seconds"  value="<%= time %>">
+						<span class="input-group-addon" id="basic-addon1">Seconds</span>
+					</div>
+				</td></tr>
+				<tr><td><input type="submit"   value="Submit"></td></tr>
+			</table>
+		</form>
+	</div>
+</div>

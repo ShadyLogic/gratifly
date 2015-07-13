@@ -2,6 +2,8 @@
 
 <div class="container treat-wrapper">
 	<% treats.each do |treat| %>
+	<% time_left = Time.at(treat.time_left).utc.strftime("%j:%H:%M:%S") %>
+	<% time_left = format_time(time_left) %>
 		<div class="btn-group">
 			<% if treat.ready? %>
 				<form action="/treats/complete" method="POST">
@@ -14,7 +16,7 @@
 		</div>
 		</br>
 		<% unless treat.ready? %>
-			<p>Time Left: <%= Time.at(treat.time_left).utc.strftime("%H:%M:%S") %></p>
+			<p>Time Left: <%= time_left %></p>
 		<% else %>
 			<p>Ready!</p>
 		<% end %>

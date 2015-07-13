@@ -1,0 +1,20 @@
+<% treats = current_user.treats %>
+
+<div class="container treat-wrapper">
+	<% treats.each do |treat| %>
+	<% elapsed_seconds = (Time.now - treat.time_start).to_i %>
+		<div class="btn-group">
+			<% if elapsed_seconds > treat.interval_in_seconds %>
+				<form action="/treats/complete" method="POST">
+					<input type="hidden" value="<%= treat.id %>">
+					<button type="button submit" class="btn btn-success"><%= treat.title %></button>
+				</form>
+			<% else %>
+				<button type="button" class="btn btn-danger"><%= treat.title %></button>
+			<% end %>
+		</div>
+		</br>
+		<p>Time Left: <%= Time.at(elapsed_seconds).utc.strftime("%H:%M:%S") %></p>
+		</br>
+	<% end %>
+</div>

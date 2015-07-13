@@ -1,18 +1,26 @@
 <link href='http://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
 <div class="container">
-  <h1 class="title">Welcome to GratiFLY!</h1>
-  <h3>Your external source of self control</h3>
-  </br>
-
-  <% if params[:error] %>
-    <div class="alert alert-danger" role="alert"><%= params[:error] %></div>
-    </br>
-  <% end %>
 
   <% if logged_in? %>
+    <h1 class="title">Welcome back <%= current_user.username %>!</h1>
+    <h3>Here are your treats:</h3>
+    </br>
 
+    <% if params[:error] %>
+      <div class="alert alert-danger" role="alert"><%= params[:error] %></div>
+      </br>
+    <% end %>
+    <%= erb :"partials/_treat_list", layout: false %>
   <% else %>
+    <h1 class="title">Welcome to GratiFLY!</h1>
+    <h3>Your external source of self control</h3>
+    </br>
+
+    <% if params[:error] %>
+      <div class="alert alert-danger" role="alert"><%= params[:error] %></div>
+      </br>
+    <% end %>
     <%= erb :"partials/_login_signup", layout: false %>
   <% end %>
 

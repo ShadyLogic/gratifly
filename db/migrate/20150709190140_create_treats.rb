@@ -4,6 +4,7 @@ class CreateTreats < ActiveRecord::Migration
       t.string   :title
       t.boolean  :ready
       t.datetime :time_start
+      t.integer	 :interval_in_seconds
       t.integer  :user_id
       t.timestamps
     end

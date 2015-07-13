@@ -5,6 +5,6 @@ require "faker"
   new_user.password = "1234swag"
   new_user.save
   5.times do
-    new_user.treats << Treat.create(title: "#{Faker::Hacker.verb.capitalize} #{Faker::Hacker.noun}", ready: false, time_start: Time.now)
+    new_user.treats << Treat.create(title: "#{Faker::Hacker.verb.capitalize} #{Faker::Hacker.noun}", ready: false, time_start: Time.now, interval_in_seconds: 300)
   end
 end

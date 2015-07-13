@@ -16,7 +16,7 @@ helpers do
   end
 
   def logged_in?
-    !session[:username].nil?
+    !session[:username].nil? && current_user
   end
 
   def current_user

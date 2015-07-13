@@ -13,8 +13,13 @@ div .panel {
 }
 
 div .alert {
-  overflow: visible;
   text-align: center;
   margin: auto;
   width: 200px;
+}
+
+div .treat-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 400px;
 }

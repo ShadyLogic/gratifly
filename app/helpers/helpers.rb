@@ -31,15 +31,22 @@ helpers do
     User.find_by(username: username)
   end
 
-  def format_time(passed_time)
-    days = passed_time.split("").shift(3).join.to_i
-    days -= 1
-    passed_time = passed_time.reverse.chop.chop.chop.chop.reverse
-    p "*********** #{passed_time} *************"
-    if days > 0
-      ("%03d" % days) + ":" + passed_time
-    else
-      passed_time
+  def format_time(time)
+    time_array = time.split(":")
+    time_array.map! { |time| time.to_i }
+    time_array[0] -= 1
+    output = ""
+    unless (time_array[0]) < 1
+      output = output + "#{time_array[0]} days, "
+    end
+    unless (time_array[1]) < 1
+      output = output + "#{time_array[1]} hours, "
+    end
+    unless (time_array[2]) < 1
+      output = output + "#{time_array[2]} minutes, "
+    end
+    unless (time_array[3]) < 1
+      output = output + "#{time_array[3]} seconds"
     end
   end
 end

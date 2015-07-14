@@ -29,7 +29,7 @@ class Treat < ActiveRecord::Base
   def ready?
   	elapsed_seconds = (Time.now - self.time_start).to_i
   	time_left = self.interval_in_seconds - elapsed_seconds
-  	self.ready = true if time_left < 0
+  	self.ready = true if time_left < 1
   	self.save
   	self.ready
   end

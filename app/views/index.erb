@@ -1,3 +1,11 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+<script type="text/javascript">
+var auto_refresh = setInterval(
+  function (){
+     $('#treat-list').load('/treats/list');
+  }, 1000); // refresh every 10000 milliseconds
+</script>
+
 <link href='http://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
 <div class="container">
@@ -11,7 +19,9 @@
       <div class="alert alert-danger" role="alert"><%= params[:error] %></div>
       </br>
     <% end %>
-    <%= erb :"partials/_treat_list", layout: false %>
+    <div id="treat-list">
+      <%= erb :"partials/_treat_list", layout: false %>
+    </div>
   <% else %>
     <h1 class="title">Welcome to GratiFLY!</h1>
     <h3>Your external source of self control</h3>

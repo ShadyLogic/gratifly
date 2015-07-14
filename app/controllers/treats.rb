@@ -1,3 +1,7 @@
+get '/treats/list' do
+	erb :"/partials/_treat_list", layout: false
+end
+
 get '/treats' do
 	redirect "/"
 end
@@ -92,7 +96,7 @@ put '/treats' do
 				else
 					return "YOU MUST ENTER TIME IN AT LEAST ONE FIELD"
 				end
-				treat.title 				= params[:title] 
+				treat.title 				= params[:title]
 				treat.ready 				= false
 				treat.time_start			= Time.now
 				treat.interval_in_seconds	= interval_in_seconds
